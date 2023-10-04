@@ -1,4 +1,4 @@
- import requests
+import requests
 from bs4 import BeautifulSoup
 
 url = "https://www.musinsa.com/categories/item/003002?d_cat_cd=003002&brand=&list_kind=small&sort=sale_high&sub_sort=1m&page=1&display_cnt=90&group_sale=&exclusive_yn=&sale_goods=&timesale_yn=&ex_soldout=&plusDeliveryYn=&kids=&color=&price1=&price2=&shoeSizeOption=&tags=&campaign_id=&includeKeywords=&measure="

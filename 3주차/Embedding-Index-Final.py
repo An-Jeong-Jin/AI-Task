@@ -90,11 +90,11 @@ db = Chroma.from_documents(docs, embedding=embeddings, persist_directory="recipe
 db.persist()
 ######
 
-query = "토스트"
+query = "전남친 토스트 레시피 알려줘"
 docs = db.similarity_search(query)
 ######
 
-docs[:5]
+docs[0]
 
 
 

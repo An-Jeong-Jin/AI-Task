@@ -5,7 +5,7 @@
 
 # 주제 
 https://www.82cook.com 의 요리사이트에서 최근 히트 요리 레시피들을 크롤링 및 전처리 후 코랩에 텍스트 파일로 저장
-저장된 파일을 임베딩 및 색인하여 검색어를 통하 원하는 텍스트파일을 불러오는 코드
+저장된 파일을 임베딩 및 색인하여 검색어를 통해 원하는 텍스트파일을 불러오는 코드
 
 
 * * *
@@ -16,6 +16,29 @@ https://www.82cook.com 의 요리사이트에서 최근 히트 요리 레시피�
 BUT 웹페이지가 바뀌기 때문에 새로운 코드 추가 
 전처리 문제? 영어 한글외 불필요한 특수문자는 거의 없기에 전처리 문제는 아닐가능성이큼 
 코드 수정 과정: 네이버 카페 크롤링 과정
+
+
+* * *
+#문제  
+
+아래의 코드처럼 특정 키워드 또는 000 레시피를 알려줘와 같은 값을 줬을때 해당 검색어와 관련된 결과가 전혀 나오지 않음 
+
+코드 
+
+      db = Chroma.from_documents(docs, embedding=embeddings,
+                                       persist_directory="recipe_index_hf")
+      db.persist()
+      query = "미역국" or query = "미역국 레시피를 알려줘"
+      docs = db.similarity_search(query)
+      docs[:4]
+실행결과
+
+
+
+
+아래의 코드처럼 특정 키워드 또는 000 레시피를 알려줘와 같은 값을 줬을때 해당 검색어와 관련된 결과가 전혀 나오지 않음
+
+
 
 
 미역, 샌드위치, 사과 레시피를  치면 해당 레시피가 나오긴하지만 특정 레시피는  각각의 음식이 다 섞여있어서 색인해서 찾는게 정확하지 않음 
@@ -29,3 +52,6 @@ BUT 웹페이지가 바뀌기 때문에 새로운 코드 추가
 <img width="1237" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/7ad5da6f-6cf7-467f-b2c5-b38d1ce546b5">
 <img width="1244" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/530a8c75-37fb-4873-8fd3-f139fc6b227c">
 
+* * *
+#코드 설명
+코드내에 주석처리

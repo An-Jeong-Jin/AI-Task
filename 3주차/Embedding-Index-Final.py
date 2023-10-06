@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import re
 from google.colab import drive
 
-num_pages = 2
+num_pages = 3
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
 

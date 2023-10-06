@@ -26,9 +26,6 @@ for page_num in range(1, num_pages + 1):
         link = "https://www.82cook.com/entiz/" + text   #####다른 사이트와 다르게 href="read.php?bn=10&num=3245201&page=0"와 같이 뒷부분만 가져올 수 있어 해당 링크에 붙여줌
         link_list.append(link)
 
-l = []
-t = []
-
 for link in link_list:
     res = requests.get(link, headers=headers)
     soup = BeautifulSoup(res.text, 'lxml')

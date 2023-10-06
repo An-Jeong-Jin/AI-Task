@@ -22,6 +22,7 @@ BUT 웹페이지가 바뀌기 때문에 새로운 코드 추가
 00 레시피를 적으면 특정 레시피만 계속 뜸
 
 문제는 전처리였따!!!!!!!!!!!!!!!!!!!!!!!!!!!! 전처리를 꼭 해줘야 정확도가 올라감
+코랩은 변덕이 심함
 <img<img width="1247" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/0f67c929-17c7-4613-b988-3e7fca6dd87e">
 >
 <img width="1231" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/533a6a89-6871-46a1-894c-cd6d8eb788c0">

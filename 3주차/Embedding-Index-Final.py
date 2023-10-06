@@ -44,9 +44,6 @@ for text, title in zip(t, l):
     combine_text = f"메뉴: {title} \n 레시피:{text}"
     combine_list.append(combine_text)
 
-for i in combine_list:
-    print(f"Hit recipe \n {i}\n")
-
 #####크롤링한 레시피들 출력
 for i in combine_list:
   print(f"Hit recipe \n {i}\n")

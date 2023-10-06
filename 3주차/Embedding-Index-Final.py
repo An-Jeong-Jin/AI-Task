@@ -23,7 +23,7 @@ for page_num in range(1, num_pages + 1):
         a.append(i.get('href'))
 
     for text in a:
-        link = "https://www.82cook.com/entiz/" + text
+        link = "https://www.82cook.com/entiz/" + text   #####다른 사이트와 다르게 href="read.php?bn=10&num=3245201&page=0"와 같이 뒷부분만 가져올 수 있어 해당 링크에 붙여줌
         link_list.append(link)
 
 l = []
@@ -33,10 +33,10 @@ for link in link_list:
     res = requests.get(link, headers=headers)
     soup = BeautifulSoup(res.text, 'lxml')
 
-    content = soup.select('#column2')
+    content = soup.select('#column2')               ###텍스트 전체를 박스 찾기
     for i in content:
-        l.append(i.select_one('#readTitle > h2').text.strip().replace(" ", "").replace("※", "").replace("!", ""))
-        t.append(i.select_one('#articleBody').text.strip().replace(" ", "").replace("※", "").replace("!", ""))
+        l.append(i.select_one('#readTitle > h2').text.strip().replace(" ", "").replace("※", "").replace("!", ""))     ######전체를 포함하는 박스에서 레시피 이름만 가져오기
+        t.append(i.select_one('#articleBody').text.strip().replace(" ", "").replace("※", "").replace("!", ""))        ######전체를 포함하는 박스에서 레시피 내용만 가져오기
 
 for text, title in zip(t, l):
     title = ''.join(title.split())

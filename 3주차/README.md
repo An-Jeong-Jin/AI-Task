@@ -74,7 +74,7 @@ BUT 웹페이지가 바뀌기 때문에 새로운 코드 추가
       
 #문제2 
 
-전처리를 통해 키워드로 값을 줬을때는 해당 검색어와 관련된 결과값이 나오긴 하지만 00 레시피를 알려줘, 00 요리를 알려줘와 같이 문장으로 작성하면 
+전처리를 통해 키워드로 값을 줬을때는 특정 레시피들은 해당 검색어와 관련된 결과값이 잘 나오긴 하지만 특정 레시피의 경우 키워드 , "00 레시피를 알려줘"와 같은 값을 줬을때 정확도가 떨어지거나 전혀 다른값을 출력
 
 
 
@@ -84,11 +84,6 @@ BUT 웹페이지가 바뀌기 때문에 새로운 코드 추가
 
 문제는 전처리였따!!!!!!!!!!!!!!!!!!!!!!!!!!!! 전처리를 꼭 해줘야 정확도가 올라감
 코랩은 변덕이 심함
-<img<img width="1247" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/0f67c929-17c7-4613-b988-3e7fca6dd87e">
->
-<img width="1231" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/533a6a89-6871-46a1-894c-cd6d8eb788c0">
-<img width="1237" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/7ad5da6f-6cf7-467f-b2c5-b38d1ce546b5">
-<img width="1244" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/530a8c75-37fb-4873-8fd3-f139fc6b227c">
 
 * * *
 #코드 설명

@@ -42,10 +42,8 @@ for idx, combine_text in enumerate(combine_list):
     file_name = f'/content/drive/MyDrive/Colab Notebook/recipe/레시피_{idx + 1}.txt'
     with open(file_name, 'w', encoding='utf-8') as file:
         file.write(combine_text)
-
 ##################### 크롤링 후 전처리 및 드라이브 마운트를 통한 레시피 텍스트 파일저장 
 #######################임베딩 및 색인 시작
-
 import os
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import Chroma

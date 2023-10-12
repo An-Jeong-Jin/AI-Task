@@ -20,6 +20,7 @@
 
 실행결과
     
+        <img width="525" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/efe493d4-dcff-4083-ac72-88c6b77acd19">
         egg.png
         JPEG
         (1280, 905)

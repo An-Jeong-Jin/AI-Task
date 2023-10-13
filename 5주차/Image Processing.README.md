@@ -221,7 +221,7 @@ img_02 = <img width="739" alt="image" src="https://github.com/An-Jeong-Jin/AI-Ta
 
 실행결과
 
-    <img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/12f0d66e-2bfc-4a43-8a16-5ad760e628e7">
+  <img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/12f0d66e-2bfc-4a43-8a16-5ad760e628e7">
     
     
     
@@ -230,6 +230,6 @@ img_02 = <img width="739" alt="image" src="https://github.com/An-Jeong-Jin/AI-Ta
       [238 215 184]
       ... 생략
     
-    <img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/cea1ca85-3ff4-43fb-b138-684d21b0ab86">
+  <img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/cea1ca85-3ff4-43fb-b138-684d21b0ab86">
 
   

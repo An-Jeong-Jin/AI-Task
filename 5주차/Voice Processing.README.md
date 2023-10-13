@@ -104,3 +104,6 @@
     cut_audio = audio[start:end]
     outputfile = ("/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav")
     cut_audio.export(outputfile, format="wav")
+# 아쉬운 점
+경로 지정 오류
+모듈 다운로드 오류

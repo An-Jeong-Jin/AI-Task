@@ -36,12 +36,12 @@
 코드
 
     from pydub import AudioSegment
-    filepath = '/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav'
+    filepath = '/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav'
     audio = AudioSegment.from_file(filepath)
     new_sample_rate = 22000
     audio = audio.set_frame_rate(new_sample_rate)
     
-    output_path = '/content/drive/MyDrive/Colab Notebook/audio/22hzfightday.wav'
+    output_path = '/content/drive/MyDrive/Colab Notebook/audio/22hzVOICE.wav'
     audio.export(output_path, format="wav")
 # 음성파형 (wav) 그려보기
 코드
@@ -49,7 +49,7 @@
     import librosa
     import matplotlib.pyplot as plt
     import librosa.display
-    y, sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav') 
+    y, sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
     plt.figure(figsize =(16,6))
     librosa.display.waveshow(y =y, sr = sr)
     plt.show()
@@ -65,7 +65,7 @@
     import numpy as np
     import librosa
     
-    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav') 
+    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
     D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512)) 
     
     print(D.shape)
@@ -79,8 +79,9 @@
 
 # 음성파일  스펙트로그램 시각화
 코드
-
-    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav') 
+    
+    import librosa
+    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
     DB = librosa.amplitude_to_db(D, ref=np.max) #amplitude(진폭) -> DB(데시벨)로 바꿔라
     
     plt.figure(figsize=(16,6))
@@ -96,10 +97,10 @@
 코드
     
     from pydub import AudioSegment
-    filepath = ('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav')
+    filepath = ('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav')
     audio = AudioSegment.from_file(filepath)
     start = 20000
     end = 25000                ###20초~25초
     cut_audio = audio[start:end]
-    outputfile = ("/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav")
+    outputfile = ("/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav")
     cut_audio.export(outputfile, format="wav")

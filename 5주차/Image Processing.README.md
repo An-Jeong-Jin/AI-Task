@@ -160,5 +160,29 @@ img_02 = <img width="739" alt="image" src="https://github.com/An-Jeong-Jin/AI-Ta
 
 
   
+# 이미지 필터링 
 
+코드
+
+    from PIL import Image
+    img = Image.open('egg.png')
+    img_gray = img.convert("L")
+    img_gray.show() ##흑백 이미지 
     
+    from PIL import ImageFilter
+    
+    img_blur = img.filter(ImageFilter.GaussianBlur(10))###Blur 효과를 줄 때 가장 많이 사용하는 가우시안 블러로 숫자를 크게 할수록 흐려짐
+    img_blur.show()  ## 흐린 이미지
+    
+    from PIL import Image
+    img = Image.open('egg.png')
+    img_edge = img.filter(ImageFilter.EDGE_ENHANCE)
+    img_edge.show()   ## 엣지 강조 이미지 
+    print(img_edge.format, img_edge.size, img_edge.mode)
+
+실행결과
+![image](https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/031c53df-11fe-4aac-9fe9-3dbc63d1793d)
+
+![image](https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/2fa01af5-c628-4002-895f-3356f1952f8f)
+
+![image](https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/bfda5e79-7d84-4947-a8ce-369569261c02)

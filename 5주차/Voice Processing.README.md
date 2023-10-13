@@ -7,7 +7,6 @@
     
     # 필요한 라이브러리 임포트
     import soundfile as sf
-    import pydub
     # 음성 파일 경로 지정
     file_path = "Voice.wav"
     
@@ -23,8 +22,84 @@
     # audio.play() 
     ###구글링  #### https://wikidocs.net/15214
     import pyglet
-    song = pyglet.media.load("Voice")
+    song = pyglet.media.load("Voice.wav")
     song.play()
     # pyglet.app.run()
 
-수정중!!!
+실행결과
+    
+    Sample Rate: 44100
+    Duration: 195.1608163265306 seconds
+    음악실행
+#음성파일 변환
+
+코드
+
+    from pydub import AudioSegment
+    filepath = '/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav'
+    audio = AudioSegment.from_file(filepath)
+    new_sample_rate = 22000
+    audio = audio.set_frame_rate(new_sample_rate)
+    
+    output_path = '/content/drive/MyDrive/Colab Notebook/audio/22hzfightday.wav'
+    audio.export(output_path, format="wav")
+# 음성파형 (wav) 그려보기
+코드
+
+    import librosa
+    import matplotlib.pyplot as plt
+    import librosa.display
+    y, sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav') 
+    plt.figure(figsize =(16,6))
+    librosa.display.waveshow(y =y, sr = sr)
+    plt.show()
+
+실행결과
+
+<img width="1066" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/b1d980a6-7435-4791-b4f3-09330875edde">
+
+# 음성파일을 푸리에변환 
+
+코드
+    
+    import numpy as np
+    import librosa
+    
+    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav') 
+    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512)) 
+    
+    print(D.shape)
+    
+    plt.figure(figsize=(16,6))
+    plt.plot(D)
+    plt.show()
+실행결과
+
+ <img width="1144" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/8cfe58b5-f8e7-4389-90b8-88c12e33a338">
+
+# 음성파일  스펙트로그램 시각화
+코드
+
+    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav') 
+    DB = librosa.amplitude_to_db(D, ref=np.max) #amplitude(진폭) -> DB(데시벨)로 바꿔라
+    
+    plt.figure(figsize=(16,6))
+    librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')
+    plt.colorbar()
+    plt.show()
+
+실행결과
+
+<img width="1121" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/87cefbe7-2a30-47bc-93f9-2374fe2c3664">
+
+# 음성파일 자르기
+코드
+    
+    from pydub import AudioSegment
+    filepath = ('/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav')
+    audio = AudioSegment.from_file(filepath)
+    start = 20000
+    end = 25000                ###20초~25초
+    cut_audio = audio[start:end]
+    outputfile = ("/content/drive/MyDrive/Colab Notebook/audio/싸운날.wav")
+    cut_audio.export(outputfile, format="wav")

@@ -186,3 +186,50 @@ img_02 = <img width="739" alt="image" src="https://github.com/An-Jeong-Jin/AI-Ta
 ![image](https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/2fa01af5-c628-4002-895f-3356f1952f8f)
 
 ![image](https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/bfda5e79-7d84-4947-a8ce-369569261c02)
+
+# 이미지 바이트 배열로 변환
+
+코드
+
+    from PIL import Image
+    import io
+    img = Image.open("egg.png")
+    img_byte = io.BytesIO()
+    img.save(img_byte, format="PNG")
+    img_byte1 = img_byte.getvalue()
+    print(img_byte1[:2])
+
+실행결과
+  
+    b'\x89P'
+# 이미지 넘파이 배열로 변환
+
+코드
+
+    ##이미지 넘파이배열로 바꾸고 넘파이 배열을 이미지로 바꾸기 
+    import numpy as np
+    from PIL import Image
+    
+    img = Image.open('egg.png')
+    img.show()
+    
+    x = np.array(img) ## 이미지 -> 넘파이 배열
+    print(x)
+    
+    img = Image.fromarray(x) ## 넘파이 배열 -> 이미지 
+    img.show()
+
+실행결과
+
+    <img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/12f0d66e-2bfc-4a43-8a16-5ad760e628e7">
+    
+    
+    
+    [[[238 215 184]
+      [238 215 184]
+      [238 215 184]
+      ... 생략
+    
+    <img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/cea1ca85-3ff4-43fb-b138-684d21b0ab86">
+
+  

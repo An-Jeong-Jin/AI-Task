@@ -118,6 +118,47 @@
 <img width="640" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/1ea6c818-89a4-4e6e-99e2-d43a63376c49">
 
 
+# 이미지 배경 없애기 
+코드(코랩)
+
+    from rembg import remove
+    from PIL import Image
+    from google.colab import drive
+    drive.mount('/content/drive')
+    input = Image.open('/content/drive/MyDrive/Colab Notebook/img/egg.png') # load image
+    output = remove(input) # remove background
+    output.save('/content/drive/MyDrive/Colab Notebook/img/regg.png') # save image
+
+실행결과
+
+<img width="657" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/756a654e-c5f6-4af5-a9b8-057d8023b67e">
+
+# 이미지 합병
+
+코드
+
+    from PIL import Image
+    img_01 = Image.open("cloud.jpg")
+    img_02 = Image.open("rm_egg.png")
+    img_01_size = img_01.size
+    new_im = Image.new('RGB', img_01_size, (250, 250, 250))
+    new_im.paste(img_01, (0, 0))
+    new_im.paste(img_02, (40, 10), img_02) 
+    new_im.show()
+    print(new_im.format, new_im.size, new_im.mode)
+
+
+img_01 = <img width="1021" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/ece24457-3b53-4eee-940f-6db91912064d">
+
+
+img_02 = <img width="739" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/37279599-b150-485a-9898-a1ef286a3e77">
+
+실행결과
+
+<img width="373" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/27ae5e16-7bfa-432d-b5dc-63dfc1a71289">
+
 
 
   
+
+    

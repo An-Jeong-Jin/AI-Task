@@ -9,7 +9,7 @@
     import soundfile as sf
     import pydub
     # 음성 파일 경로 지정
-    file_path = "Dancing Cartoon.wav"
+    file_path = "Voice.wav"
     
     # 음성 파일 읽기
     data, sample_rate = sf.read(file_path)
@@ -23,7 +23,7 @@
     # audio.play() 
     ###구글링  #### https://wikidocs.net/15214
     import pyglet
-    song = pyglet.media.load("Dancing Cartoon.wav")
+    song = pyglet.media.load("Voice")
     song.play()
     # pyglet.app.run()
 

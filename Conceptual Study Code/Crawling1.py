@@ -7,9 +7,9 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 res = requests.get(url, headers=headers)
 soup = BeautifulSoup(res.text, 'lxml')
 
-newslist = soup.select(".list_newsmajor")
+newslist = soup.select(".list_newsmajor > li")
 
-for news_item in newslist[0].select("li"): 
+for news_item in newslist: 
     info_cp = news_item.select_one(".info_cp").text
     link_txt = news_item.select_one(".link_txt")['href']
     title = news_item.select_one(".link_txt").text.strip() 

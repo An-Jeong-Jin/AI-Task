@@ -50,11 +50,7 @@ def Musinsa(t):  #Musinsa 함수를 정의하고 입력한 카테고리에 대�
 
 user_input = input()
 result = Musinsa(user_input)
-if isinstance(result, list) and len(result) > 0:       #변수가 리스트인지 확인 및 데이터가 비어있지 않은지 확인
-    df = pd.DataFrame(result)                          #리스트면서 데이터가 있으면 판다스 데이터 프레임으로 변환     
-    print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False))
-else:
-    print(result)                                      #그렇지 않으면 result 출력
-                                                       # 해당 하지 않은 카테고리를 입력할때 "해당 카테고리는 존재하지 않습니다"라는 출력값을 고려하여 조건문을 사용
-
+df = pd.DataFrame(result)                             
+print(tabulate(df, headers='keys', tablefmt='pretty', showindex=False))
+            
 driver.quit()

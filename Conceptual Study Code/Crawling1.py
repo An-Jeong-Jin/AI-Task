@@ -7,7 +7,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 res = requests.get(url, headers=headers)
 soup = BeautifulSoup(res.text, 'lxml')
 
-newslist = soup.select(".list_newsmajor > li")
+newslist = soup.select(".list_newsmajor > li")  # 원하는 기사 요소에 접근
 
 for news_item in newslist: 
     info_cp = news_item.select_one(".info_cp").text

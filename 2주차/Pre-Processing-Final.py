@@ -59,8 +59,51 @@ if category not in category_links:
 else:
     url = category_links[category]                ### url을 딕셔너리 value값을 통해 불러옴
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
+   soup = BeautifulSoup(res.text, 'lxml')                  
+    news_content_list = []
+    newslist = soup.select(".list_newsmajor li")            #### li, li, li, li를 포함한 박스
+
+    for news_item in newslist:
+        link_txt = news_item.select_one(".link_txt")['href']      ## n개의 li의 링크를 담고  그 링크를 타고 들어가 텍스트 부분을 지정하는 요소에서 텍스트만을 추출하여 리스트에 저장
+        article_res = requests.get(link_txt, headers=headers)            
+        article_soup = BeautifulSoup(article_res.text, 'lxml')
+        news_content = article_soup.select_one(".article_view").text.replace("\n", "")
+        news_content_list.append(news_content)
 
 
-    res = requests.get(url, headers=headers)
-    soup = Beauti력
-    plt.show()
+
+    cleaned_text = re.sub(r'[^가-힣a-zA-Z0-9\s]', '', str(news_content_list))           #### 특수 문자와 괄호 제거
+
+
+    tokens = word_tokenize(cleaned_text)           ######## 토큰화
+
+
+    filtered_tokens = [word for word in tokens if word not in korean_stopwords]               ##### 불용어 처리 & 영어, 숫자 제거 & 1글자 단어 제거
+    filtered_words = [word for word in filtered_tokens if not re.search(r'[a-zA-Z0-9]', word)]
+    Word_tokens = [word for word in filtered_words if len(word) > 1]
+
+    okt = Okt()                                                        ##### 명사 추출
+    nouns = okt.nouns(str(Word_tokens))
+    nouns = [word for word in nouns if len(word) > 1]
+    noun_freq = Counter(nouns)                                        ####문자 빈도수
+
+    top_noun_freq = noun_freq.most_common(500)               #### 단어의 빈도수가 높은 것 순으로 재배열
+
+    print(top_noun_freq)
+
+                                                                 #### 워드 클라우드 생성
+
+    wc = WordCloud(
+        max_words=50,      ## 최대 단어수
+        random_state=810,   ## 난수 / 동일해야 코드 돌려도 같은 값 출력
+        background_color='white',
+        font_path='/content/drive/MyDrive/JJJ.File/NanumSquareRoundEB.ttf')  ## 글꼴
+    wc.generate_from_text(str(top_noun_freq).replace("'", ""))    ## 워드 클라우드 생성, ' ' 을 없애줌
+
+                                                                ### 워드 클라우드 시각화
+    plt.figure(figsize=(8, 8)) 크기
+    plt.imshow(wc)      # 워드클라우드 이미지 표시      
+    plt.axis('off')  # 그래프  
+    plt.show()  # 화면에 출력력
+
+  

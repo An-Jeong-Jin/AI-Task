@@ -68,27 +68,7 @@
     import librosa
     
     y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     ###n_fft = FFT연산에 사용되는 윈도우 크기 지정/ 주파수 해상도와 비례    hop_length = 슬라이드창을 512 샘플링 포인트 마다 이동시킴   / 절댓값 / 넘파이
-    
-    print(D.shape)            ## 배열의 차원정보확인 및 행 크기 , 열크기 출
-    
-    plt.figure(figsize=(16,6))
-    plt.plot(D) 
-    plt.show()
-실행결과
-
- <img width="1144" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/8cfe58b5-f8e7-4389-90b8-88c12e33a338">
-
-# 음성파일  스펙트로그램 시각화
-코드
-    
-    import librosa
-    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-    DB = librosa.amplitude_to_db(D, ref=np.max) #amplitude(진폭) -> DB(데시벨)로 바꿔라
-    
-    plt.figure(figsize=(16,6))
-    librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')
-    plt.colorbar()
+    D = np.abs(librosa.stft(y, n_fft=2048, hop가
     plt.show()
 
 실행결과
@@ -101,8 +81,8 @@
     from pydub import AudioSegment
     filepath = ('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav')
     audio = AudioSegment.from_file(filepath)
-    start = 20000
-    end = 25000                ###20초~25초
+    start = 50000
+    end = 55000                ###50초~55초 
     cut_audio = audio[start:end]
     outputfile = ("/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav")
     cut_audio.export(outputfile, format="wav")

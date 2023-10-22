@@ -138,12 +138,12 @@
 코드
 
     from PIL import Image
-    img_01 = Image.open("cloud.jpg")
-    img_02 = Image.open("rm_egg.png")
-    img_01_size = img_01.size
-    new_im = Image.new('RGB', img_01_size, (250, 250, 250))
-    new_im.paste(img_01, (0, 0))
-    new_im.paste(img_02, (40, 10), img_02) 
+    img_01 = Image.open("cloud.jpg")  ### 배경으로 쓸 이미지 
+    img_02 = Image.open("rm_egg.png")  ### 붙일 이미지 
+    img_01_size = img_01.size   ## 이미지의 크기를 얻어 변수에 저장
+    new_im = Image.new('RGB', img_01_size, (250, 250, 250))   ## 새로운 이미지 생성, img_01과 사이즈 동일시 하기 위해 img_01_size삽입 #(250, 250, 250)는 크게 의미X 새로운 이미지 색을 회색으로 만듬
+    new_im.paste(img_01, (0, 0)) ### 회색으로 된 new_im위에 img_01을 덮음 
+    new_im.paste(img_02, (40, 10), img_02)  img_01 이미지 위에 img2이미지를 40, 10위치에 붙임
     new_im.show()
     print(new_im.format, new_im.size, new_im.mode)
 

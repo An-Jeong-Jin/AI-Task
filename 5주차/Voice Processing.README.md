@@ -11,7 +11,7 @@
     file_path = "Voice.wav"
     
     # 음성 파일 읽기
-    data, sample_rate = sf.read(file_path)
+    data, sample_rate = sf.read(file_path) ###soundfile 라이브러리를 통해 데이터, 샘플 레이트(우리가 듣는 소리를 숫자화) 불러옴
     
     # 음성 파일의 메타 정보 출력
     print("Sample Rate:", sample_rate)

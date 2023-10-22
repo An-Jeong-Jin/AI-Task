@@ -121,7 +121,7 @@
 # 이미지 배경 없애기 
 코드(코랩)
 
-    from rembg import remove
+    from rembg import remove  ## 컬러 기반, 색상으로 배경과 객체를 구분
     from PIL import Image
     from google.colab import drive
     drive.mount('/content/drive')

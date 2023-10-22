@@ -66,7 +66,7 @@
     import librosa
     
     y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512)) 
+    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     
     
     print(D.shape)
     

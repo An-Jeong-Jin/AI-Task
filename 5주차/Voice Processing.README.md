@@ -84,11 +84,11 @@
 
     import librosa
     y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-    DB = librosa.amplitude_to_db(D, ref=np.max) #amplitude(진폭) -> DB(데시벨)로 바꿔라
+    DB = librosa.amplitude_to_db(D, ref=np.max) #amplitude(진폭) -> DB(데시벨)로 바꿔라 ## ref=np.max는 데시벨로 변환할때 참조되는 값/ 주로 스펙트럼의 최댓값을 사용
 
     plt.figure(figsize=(16,6))
-    librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')
-    plt.colorbar()
+    librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')#hop_length = 해상도 결정 및 스펙트로그램의 각 열 간의 간격
+    plt.colorbar()  # 색입히기
 
 실행결과
 

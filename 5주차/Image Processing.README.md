@@ -39,9 +39,9 @@
     import matplotlib.pyplot as plt
     
     img = Image.open('egg.png')
-    img_np = np.array(img)
-    plt.imshow(img_np)
-    plt.show()
+    img_np = np.array(img)   ## 이미지를 넘파이 배열로 반환
+    plt.imshow(img_np)      ## matplotlib라이브러리를 통해 넘파이 배열로 저장된 이미지를 시각적으로 표현, 해당 픽셀 좌표축을 함께 표시
+    plt.show()  #화면에 표시  
 
   실행결과
 

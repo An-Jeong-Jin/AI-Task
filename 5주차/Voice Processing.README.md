@@ -68,8 +68,27 @@
     import librosa
     
     y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-     D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     ###n_fft = FFT연산에 사용되는 윈도우 크기 지정/ 주파수 해상도와 비례    hop_length = 슬라이드창을 512 샘플가
+    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     ###n_fft = FFT연산에 사용되는 윈도우 크기 지정/ 주파수 해상도와 비례    hop_length = 슬라이드창을 512 샘플링 포인트 마다 이동시킴   / 절댓값 / 넘파이
+
+    print(D.shape)            ## 배열의 차원정보확인 및 행 크기 , 열크기 출
+
+    plt.figure(figsize=(16,6))
+    plt.plot(D) 
     plt.show()
+실행결과
+
+ <img width="1144" alt="image" src="https://github.com/An-Jeong-Jin/AI-Task/assets/120768669/8cfe58b5-f8e7-4389-90b8-88c12e33a338">
+
+# 음성파일  스펙트로그램 시각화
+코드
+
+    import librosa
+    y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
+    DB = librosa.amplitude_to_db(D, ref=np.max) #amplitude(진폭) -> DB(데시벨)로 바꿔라 ## ref=np.max는 데시벨로 변환할때 참조되는 값/ 주로 스펙트럼의 최댓값을 사용
+
+    plt.figure(figsize=(16,6))
+    librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')#hop_length = 해상도 결정 및 스펙트로그램의 각 열 간의 간격
+    plt.colorbar()  # 색입히기
 
 실행결과
 

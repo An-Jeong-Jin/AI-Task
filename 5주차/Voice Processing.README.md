@@ -70,7 +70,7 @@
     y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
     D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     ###n_fft = FFT연산에 사용되는 윈도우 크기 지정/ 주파수 해상도와 비례    hop_length = 슬라이드창을 512 샘플링 포인트 마다 이동시킴   / 절댓값 / 넘파이
 
-    print(D.shape)            ## 배열의 차원정보확인 및 행 크기 , 열크기 출
+    print(D.shape)            ## 배열의 차원정보확인 및 행 크기 , 열크기 출력
 
     plt.figure(figsize=(16,6))
     plt.plot(D) 
@@ -88,7 +88,8 @@
 
     plt.figure(figsize=(16,6))
     librosa.display.specshow(DB,sr=sr, hop_length=512, x_axis='time', y_axis='log')#hop_length = 해상도 결정 및 스펙트로그램의 각 열 간의 간격
-    plt.colorbar()  # 색입히기
+    plt.colorbar()  # 색상 막대기를 그래프에 추가
+    plt.show()
 
 실행결과
 

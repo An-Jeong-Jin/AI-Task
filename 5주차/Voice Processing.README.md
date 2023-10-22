@@ -49,9 +49,9 @@
     import librosa
     import matplotlib.pyplot as plt
     import librosa.display
-    y, sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-    plt.figure(figsize =(16,6))
-    librosa.display.waveshow(y =y, sr = sr)
+    y, sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') # y = 오디오 데이터, sr = 샘플 레이트
+    plt.figure(figsize =(16,6))        # 가로 16, 높이 6인 그림 생성성
+    librosa.display.waveshow(y =y, sr = sr)  # 오디오 데이터 시각화
     plt.show()
 
 실행결과

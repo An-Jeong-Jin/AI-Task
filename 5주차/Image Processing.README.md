@@ -126,7 +126,7 @@
     from google.colab import drive
     drive.mount('/content/drive')
     input = Image.open('/content/drive/MyDrive/Colab Notebook/img/egg.png') # load image
-    output = remove(input) # remove background
+    output = remove(input) # 배경 삭제
     output.save('/content/drive/MyDrive/Colab Notebook/img/regg.png') # save image
 
 실행결과

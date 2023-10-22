@@ -192,12 +192,12 @@ img_02 = <img width="739" alt="image" src="https://github.com/An-Jeong-Jin/AI-Ta
 코드
 
     from PIL import Image
-    import io
+    import io     ## 메모리에서 입출력을 위해 사용 
     img = Image.open("egg.png")
-    img_byte = io.BytesIO()
-    img.save(img_byte, format="PNG")
-    img_byte1 = img_byte.getvalue()
-    print(img_byte1[:2])
+    img_byte = io.BytesIO()    ## 이미지 데이터를 담을 객체 생성
+    img.save(img_byte, format="PNG")    객체에 PNG형식으로 저장
+    img_byte1 = img_byte.getvalue()  getvalue()를 통해 저장된 이미지를 바이트로 가져옴
+    print(img_byte1[:2])  
 
 실행결과
   

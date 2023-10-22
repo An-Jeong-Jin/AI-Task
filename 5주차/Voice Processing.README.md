@@ -60,18 +60,20 @@
 
 # 음성파일을 푸리에변환 
 
+푸리에변환 = (시간 영역 데이터를 주파수 영역으로 변경) = {시계열 데이터를 작은 시간 슬라이드창(윈도우)로 나누고 각 슬라이딩 창에서 FFT를 수행하여 주파수 정보 계산}
+
 코드
     
     import numpy as np
     import librosa
     
     y , sr = librosa.load('/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav') 
-    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     
+    D = np.abs(librosa.stft(y, n_fft=2048, hop_length=512))     ###n_fft = FFT연산에 사용되는 윈도우 크기 지정/ 주파수 해상도와 비례    hop_length = 슬라이드창을 512 샘플링 포인트 마다 이동시킴   / 절댓값 / 넘파이
     
-    print(D.shape)
+    print(D.shape)            ## 배열의 차원정보확인 및 행 크기 , 열크기 출
     
     plt.figure(figsize=(16,6))
-    plt.plot(D)
+    plt.plot(D) 
     plt.show()
 실행결과
 

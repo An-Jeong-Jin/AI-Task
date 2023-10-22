@@ -5,15 +5,15 @@
 
 import requests
 from bs4 import BeautifulSoup
-import re
+import re  ## 정규 표현을 사용하여 텍스트에서 패턴 검색 및 추출하는데 사용용
 import nltk
-from nltk.tokenize import word_tokenize
+from nltk.tokenize import word_tokenize  
 from konlpy.tag import Okt
-from collections import Counter
-import matplotlib.pyplot as plt
+from collections import Counter      #### 갯수 세는데 사용
+import matplotlib.pyplot as plt        
 from wordcloud import WordCloud
 from collections import Counter
-nltk.download('punkt')
+nltk.download('punkt')   ###### 자연어처리를 위한 필요한 데이터 자원을 다운으로 하는데 사용
 nltk.download('stopwords')
 
                                                                         #### 불용어 목록 정의
@@ -57,18 +57,18 @@ category_links = {
 if category not in category_links:
     print("해당 카테고리는 존재하지 않습니다")
 else:
-    url = category_links[category]
+    url = category_links[category]                ### url을 딕셔너리 value값을 통해 불러옴
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'}
 
 
     res = requests.get(url, headers=headers)
-    soup = BeautifulSoup(res.text, 'lxml')
+    soup = BeautifulSoup(res.text, 'lxml')                  
     news_content_list = []
-    newslist = soup.select(".list_newsmajor li")
+    newslist = soup.select(".list_newsmajor li")            #### li, li, li, li를 포함한 박스
 
     for news_item in newslist:
-        link_txt = news_item.select_one(".link_txt")['href']
-        article_res = requests.get(link_txt, headers=headers)
+        link_txt = news_item.select_one(".link_txt")['href']      ## n개의 li의 링크를 담고  그 링크를 타고 들어가 텍스트 부분을 지정하는 요소에서 텍스트만을 추출하여 리스트에 저장
+        article_res = requests.get(link_txt, headers=headers)            
         article_soup = BeautifulSoup(article_res.text, 'lxml')
         news_content = article_soup.select_one(".article_view").text.replace("\n", "")
         news_content_list.append(news_content)
@@ -97,14 +97,14 @@ else:
                                                                  #### 워드 클라우드 생성
      
     wc = WordCloud(
-        max_words=50,
-        random_state=810,
+        max_words=50,      ## 최대 단어수
+        random_state=810,   ## 난수 / 동일해야 코드 돌려도 같은 값 출력
         background_color='white',
-        font_path='/content/drive/MyDrive/JJJ.File/NanumSquareRoundEB.ttf')
-    wc.generate_from_text(str(top_noun_freq).replace("'", ""))
+        font_path='/content/drive/MyDrive/JJJ.File/NanumSquareRoundEB.ttf')  ## 글꼴
+    wc.generate_from_text(str(top_noun_freq).replace("'", ""))    ## 워드 클라우드 생성, ' ' 을 없애줌
 
                                                                 ### 워드 클라우드 시각화
-    plt.figure(figsize=(8, 8))
-    plt.imshow(wc)
-    plt.axis('off')
-    plt.show()
+    plt.figure(figsize=(8, 8)) 크기
+    plt.imshow(wc)      # 워드클라우드 이미지 표시      
+    plt.axis('off')  # 그래프 축 
+    plt.show(력

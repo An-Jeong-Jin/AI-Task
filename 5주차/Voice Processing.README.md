@@ -35,10 +35,10 @@
 
 코드
 
-    from pydub import AudioSegment
-    filepath = '/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav'
+    from pydub import AudioSegment   ### pydub 라이브러리를 통한 샘플 레이트 조정  ### 오류로 인해 코랩에서 실행
+    filepath = '/content/drive/MyDrive/Colab Notebook/audio/VOICE.wav'    
     audio = AudioSegment.from_file(filepath)
-    new_sample_rate = 22000
+    new_sample_rate = 22000                ##샘플 레이트를 44000에서 22000으로 변경
     audio = audio.set_frame_rate(new_sample_rate)
     
     output_path = '/content/drive/MyDrive/Colab Notebook/audio/22hzVOICE.wav'

@@ -31,11 +31,8 @@ for page_num in range(1, num_pages + 1):
             text = i.select_one('#articleBody').text.strip().replace(".", "/").replace("※", "")
             recipe_keywords = keywords(text, words=5, split=True, scores=True, lemmatize=True)    ### TextRank 알고리즘을 사용하여 레시피 추출적 요약
             recipe_summarize = summarize(text, word_count=50)
-
-            
             summarize_recipe = f"레시피: {title}\n키워드: {recipe_keywords}\n요약된 레시피: {recipe_summarize}"  ### 레시피 제목과 내용을 결합하여 저장
             combine_list.append(summarize_recipe)
-
 
 for index, summary in enumerate(combine_list):    ### 요약된 레시피 출력
     print(f"레시피 {index + 1}번 요약:\n{summary}\n")

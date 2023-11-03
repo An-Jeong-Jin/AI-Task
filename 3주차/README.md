@@ -77,6 +77,21 @@ Huggingface Embedding을 통한 임베딩
        Document(page_content='메뉴: 참치죽\n\n레시피:죽집의베스트셀러중하나인참치죽어느가정이나상비하는재료인참치로죽을만들어보세요전복이나쇠고기등은상비하는재료가아니고손질이나양념을해야하는데비해참치는바로죽을만들수있습니다밥을이용하면분정도면쉽게만들수있어요재료인분밥컵채소감자호박당근양파버섯등다진것컵참치캔작은것물컵참기름큰술소금작은술국간장큰술후추약간만드는법참치는기름을빼두고채소는잘게다져요냄비에참기름을두르고채소와참치를넣고잠시볶아주세요밥과물을넣고끓여요중간불에서중간중간타지않게저어주면서밥알이표면에완전히떠오를때까지끓여요소금후추로간합니다간을본수저를죽냄비에넣으면전분이풀어져끈기가사라지니간을다시볼때는꼭새수저를사용해야합니다간을딱맞추지않고간장참기름깨소금을종지에담아서조금씩비벼먹어도별미입니다', metadata={'source': '/content/drive/My Drive/Colab Notebook/recipe/레시피_15.txt'}),
        Document(page_content='메뉴: 참치죽\n\n레시피:죽집의베스트셀러중하나인참치죽어느가정이나상비하는재료인참치로죽을만들어보세요전복이나쇠고기등은상비하는재료가아니고손질이나양념을해야하는데비해참치는바로죽을만들수있습니다밥을이용하면분정도면쉽게만들수있어요재료인분밥컵채소감자호박당근양파버섯등다진것컵참치캔작은것물컵참기름큰술소금작은술국간장큰술후추약간만드는법참치는기름을빼두고채소는잘게다져요냄비에참기름을두르고채소와참치를넣고잠시볶아주세요밥과물을넣고끓여요중간불에서중간중간타지않게저어주면서밥알이표면에완전히떠오를때까지끓여요소금후추로간합니다간을본수저를죽냄비에넣으면전분이풀어져끈기가사라지니간을다시볼때는꼭새수저를사용해야합니다간을딱맞추지않고간장참기름깨소금을종지에담아서조금씩비벼먹어도별미입니다', metadata={'source': '/content/drive/My Drive/Colab Notebook/recipe/레시피_15.txt'})]
 
+
+해결방법
+            해당 코드에서 텍스트 분활 단위를 적당히 수정
+            
+      text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=0)
+
+실행결과
+      query = "들깨미역국"
+      [Document(page_content='메뉴: 동남아풍돼지갈비', metadata={'source': '/content/drive/My Drive/Colab Notebook/recipe/레시피_3.txt'}),
+       Document(page_content='메뉴: 들깨미역국', metadata={'source': '/content/drive/My Drive/Colab Notebook/recipe/레시피_22.txt'}),
+       Document(page_content='메뉴: 핫샌드위치', metadata={'source': '/content/drive/My Drive/Colab Notebook/recipe/레시피_18.txt'}),
+       Document(page_content='메뉴: 동남아풍돼지갈비', metadata={'source': '/content/drive/My Drive/Colab Notebook/recipe/레시피_3.txt'})]
+
+텍스트 분활 단위를 수정하니 레시피와 메뉴과 분리되어서 해당 음식뒤에 레시피를 붙이면 레시피가 출력됨
+* * *
 나아지긴 했지만 특정 레시피와 키워드로 값을 주면 값이 정확하지 않는 문제가 발생
 특정 레시피에 다른 레시피의 음식과 재료가 섞여있어서 찾는게 정확하지 않아 정확하고 성능좋은 임베딩 라이브러리를 통해 해결가능할 것 같다.
 * * *

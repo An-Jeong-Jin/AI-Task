@@ -30,7 +30,7 @@ for page_num in range(1, num_pages + 1):
             title = i.select_one('#readTitle > h2').text.strip()
             text = i.select_one('#articleBody').text.strip()
 
-            recipe_keywords = keywords(text, words=5, split=True, scores=True, lemmatize=True)    ### TextRank 알고리즘을 사용하여 레시피 추출적 요약
+            recipe_keywords = keywords(text, words=5, split=True, scores=True, lemmatize=True)    # TextRank 알고리즘을 사용하여 레시피 추출적 요약
             recipe_summarize = summarize(text, word_count=50)
 
             
@@ -39,4 +39,4 @@ for page_num in range(1, num_pages + 1):
 
 
 for index, summary in enumerate(combine_list):    ### 요약된 레시피 출력
-    print(f"Recipe {index + 1} 요약:\n{summary}\n")
+    print(f"레시피{index + 1}번 요약:\n{summary}\n")

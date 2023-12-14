@@ -2,8 +2,8 @@ import folium
 import networkx as nx
 import math
 import time
-from IPython.display import display, clear_output
-import requests
+from IPython.display import display, clear_output    # 이미지, 그래프 표시시
+import requests        #Google Maps Geolocation API에 대한 요청
 import re
 
 

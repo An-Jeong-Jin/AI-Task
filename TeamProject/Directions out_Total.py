@@ -7,23 +7,23 @@ import requests
 import re
 
 
-def find_point_with_condition(point_A, point_B, ratio=0.8):
-    if point_A[0] > point_B[0] and point_A[1] < point_B[1]:
-        new_point_A = (
+def find_point_with_condition(point_A, point_B, ratio=0.8):  ##point_A = gps, point_B= center 
+    if point_A[0] > point_B[0] and point_A[1] < point_B[1]:    ## 위, 왼
+        new_point_A = (                                          
             point_A[0] - ratio * (point_A[0] - point_B[0]),
             point_A[1] + ratio * (point_B[1] - point_A[1])
         )
-    elif point_A[0] > point_B[0]:
+    elif point_A[0] > point_B[0]:                            ## 위, 오
         new_point_A = (
             point_A[0] - ratio * (point_A[0] - point_B[0]),
             point_A[1] - ratio * (point_A[1] - point_B[1])
         )
-    elif point_A[0] < point_B[0] and point_A[1] > point_B[1]:
+    elif point_A[0] < point_B[0] and point_A[1] > point_B[1]:        ## 아래 ,오
         new_point_A = (
             point_A[0] + ratio * (point_B[0] - point_A[0]),
             point_A[1] - ratio * (point_A[1] - point_B[1])
         )
-    else:
+    else:                                                             ## 아래 , 왼
         new_point_A = (
             point_A[0] + ratio * (point_B[0] - point_A[0]),
             point_A[1] + ratio * (point_B[1] - point_A[1])

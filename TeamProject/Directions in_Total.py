@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import math
 
+
 start = 0
 ns = 0
 def in_digital(s, e):

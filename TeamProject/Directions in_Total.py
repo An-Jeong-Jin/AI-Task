@@ -16,7 +16,6 @@ def in_digital(s, e):
     'd1_3' : 34
     }
     p = {'db123' : 5, 'd127' : 1}
-    z = []
     def execute_combined_code(image_path, st, en, is_first_code=True):
         # 좌표 설정
         global ns
